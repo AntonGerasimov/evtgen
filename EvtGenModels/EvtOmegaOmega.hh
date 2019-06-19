@@ -14,22 +14,23 @@ class EvtOmegaOmega:public  EvtDecayAmp  {
 
 public:
 
-  EvtOmegaOmega() {}
-  virtual ~EvtOmegaOmega();
+    EvtOmegaOmega() {}
+    virtual ~EvtOmegaOmega();
 
-  std::string getName();
-  EvtDecayBase* clone();
+    std::string getName();
+    EvtDecayBase* clone();
 
-  void initProbMax();
-  void init();
-  void HadronicAmp( EvtParticle* parent, 
+    void initProbMax();
+    void init();
+    const double ff(const double f0, const double alpha, const double beta, const double gamma, EvtVector4R qqq);
+    void HadronicAmp( EvtParticle* parent, 
                                  EvtParticle* child, 
                                  EvtVector4C* T,
                                  const int i, 
                                  const int j );
-  EvtVector4C EvtSigmaCurrent(const EvtDiracSpinor &d, const EvtDiracSpinor &dp) ;
+    EvtVector4C EvtSigmaCurrent(const EvtDiracSpinor &d, const EvtDiracSpinor &dp) ;
 
-  void decay(EvtParticle *p); 
+    void decay(EvtParticle *p); 
 
 };
 

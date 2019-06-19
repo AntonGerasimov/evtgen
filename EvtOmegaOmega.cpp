@@ -88,7 +88,9 @@ void EvtOmegaOmega::HadronicAmp( EvtParticle* parent,
   
   	return;
 }
-
+const double EvtOmegaOmega::ff(const double f0, const double alpha, const double beta, const double gamma, EvtVector4R qqq){
+    return f0*(1 + alpha*qqq*qqq + beta*qqq*qqq*qqq*qqq + gamma*qqq*qqq*qqq*qqq*qqq*qqq);
+}
 void EvtOmegaOmega::decay(EvtParticle *b1){
   static EvtId TAUM=EvtPDL::getId("tau-");
 
@@ -100,14 +102,14 @@ void EvtOmegaOmega::decay(EvtParticle *b1){
   	l = b1->getDaug(1);
   	nul = b1->getDaug(2);
 
-	const EvtVector4R pb1 = b1->getP4lab();
-  	const EvtVector4R pb2 = b2->getP4lab();
+	const EvtVector4R pb1 = b1->getP4Lab();
+  	const EvtVector4R pb2 = b2->getP4Lab();
 	EvtVector4R q=pb1-pb2;
 
-	const double f1 = 1/(1+q*q);
-	const double g1 = 1;
-	const double f2 = 1;
-	const double g2 = 1;
+	const double f1 = ff(-0.754,0.263,0.047,0.0205,q);
+	const double g1 = ff(-1.02, 0.225, 0.0329, 0.00381, q);
+	const double f2 = ff(1.59, 0.376, 0.0926, 0.0244, q);
+	const double g2 = ff(0.119, 0.671, 0.297, -0.159, q);
 
 	EvtVector4C H[2][2]; // vector current
 	EvtVector4C T[6];
@@ -121,21 +123,22 @@ void EvtOmegaOmega::decay(EvtParticle *b1){
        		}
     	}
 	//Leptonic current
-	EvtVector4C l[2];
-	l[0]=EvtLeptonVACurrent(l->spParent(0),nul->spParentNeutrino());
-    	l[1]=EvtLeptonVACurrent(l->spParent(1),nul->spParentNeutrino());
-
-	vertex(0,0,0, H[0][0]*l[0]);
-
+	EvtVector4C lep[2];
+	lep[0]=EvtLeptonVACurrent(l->spParent(0),nul->spParentNeutrino());
+    	lep[1]=EvtLeptonVACurrent(l->spParent(1),nul->spParentNeutrino());
 	
-/*	for ( int i =0 ; i < 2; ++i ){
-     //  		for ( int j = 0; j < 2; ++j ){
-        	                
+	for ( int i =0 ; i < 2; ++i ){
+            for ( int j = 0; j < 2; ++j ){
+                for (int k=0; k<2; ++k) {
+                    vertex(i,j,k, H[i][j]*lep[k]);
+                }
+            }
    //Тут нужно суммировать три раза?      
-       		}
-    	}
+       	}
+    	return;
+}
 
-*/
+
  /*   
   EvtVector4C l1, l2, tau1, tau2;
 
@@ -157,7 +160,7 @@ void EvtOmegaOmega::decay(EvtParticle *b1){
   vertex(0,0,tau1*l1);
   vertex(0,1,tau1*l2);
   vertex(1,0,tau2*l1);
-  vertex(1,1,tau2*l2);*/
+  vertex(1,1,tau2*l2);
   return;
 
-}
+}*/
