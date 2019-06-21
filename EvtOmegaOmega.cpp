@@ -73,18 +73,22 @@ void EvtOmegaOmega::HadronicAmp( EvtParticle* parent,
                                  const int j )
 {
 	const EvtDiracSpinor Sfinal = child->spParent(i);
- 	const EvtDiracSpinor Sinit  = parent->sp(j); 
+ 	const EvtDiracSpinor Sinit  = parent->sp(j);
+        const EvtVector4R pp = parent->getP4Lab();
+  	const EvtVector4R cp = child->getP4Lab();
+        const double pm = parent->mass();
+        const double cm = child->mass();
 	 // \bar{u} \gamma^{\mu} u
   	T[0] = EvtLeptonVCurrent( Sfinal, Sinit );
 
   	// \bar{u} \gamma^{\mu}\gamma^{5} u
   	T[1] = EvtLeptonACurrent( Sfinal, Sinit );
   
-  	// \bar{u} Sigma u
-  	T[2] = EvtSigmaCurrent( Sfinal, Sinit );
+  	// \bar{u} u
+  	T[2] = EvtLeptonSCurrent( Sfinal, Sinit ) * ((pp+cp)/pm);
   
-  	// \bar{u} Sigma \gamma^{5} u
-  	T[3] = EvtSigmaCurrent( Sfinal, Sinit );
+  	// \bar{u} \gamma^{5} u
+  	T[3] = EvtLeptonPCurrent( Sfinal, Sinit ) * ((pp+cp)/pm);
   
   	return;
 }
@@ -105,6 +109,8 @@ void EvtOmegaOmega::decay(EvtParticle *b1){
 	const EvtVector4R pb1 = b1->getP4Lab();
   	const EvtVector4R pb2 = b2->getP4Lab();
 	EvtVector4R q=pb1-pb2;
+        const double m1=b1->mass();
+        const double m2=b2->mass();
 
 	const double f1 = ff(-0.754,0.263,0.047,0.0205,q);
 	const double g1 = ff(-1.02, 0.225, 0.0329, 0.00381, q);
@@ -118,7 +124,7 @@ void EvtOmegaOmega::decay(EvtParticle *b1){
        		for ( int j = 0; j < 2; ++j ){
          	HadronicAmp( b1, b2, T, i, j );
          
-         	H[i][j] = ( f1*T[0] - g1*T[1] - f2*T[2] + g2*T[3]);
+         	H[i][j] = ( f1*T[0] - g1*T[1] + f2 * T[2] - f2*(m1+m2)/m1*T[0]-g2*T[3]-g2*T[1]);
          
        		}
     	}
