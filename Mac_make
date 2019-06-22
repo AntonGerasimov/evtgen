@@ -1,3 +1,4 @@
+#!/usr/bin/make -f
 GCC=g++
 
 # test from Alex
