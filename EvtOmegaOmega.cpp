@@ -116,7 +116,12 @@ void EvtOmegaOmega::decay(EvtParticle *b1){
 	const double g1 = ff(-1.02, 0.225, 0.0329, 0.00381, q);
 	const double f2 = ff(1.59, 0.376, 0.0926, 0.0244, q);
 	const double g2 = ff(0.119, 0.671, 0.297, -0.159, q);
-
+        
+        /*const double f1=0;
+        const double g1=0;
+        const double f2=0;
+        const double g2=0;*/
+        
 	EvtVector4C H[2][2]; // vector current
 	EvtVector4C T[6];
     	// Hadronic current
@@ -124,7 +129,7 @@ void EvtOmegaOmega::decay(EvtParticle *b1){
        		for ( int j = 0; j < 2; ++j ){
          	HadronicAmp( b1, b2, T, i, j );
          
-         	H[i][j] = ( f1*T[0] - g1*T[1] + f2 * T[2] - f2*(m1+m2)/m1*T[0]-g2*T[3]-g2*T[1]);
+         	H[i][j] = ( f1*T[0] - g1*T[1] + f2 * T[2] - f2*(m1+m2)/m1*T[0]-g2*T[3] - g2*(m1-m2)/m1*T[1]);
          
        		}
     	}

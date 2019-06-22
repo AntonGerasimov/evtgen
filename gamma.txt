@@ -1,0 +1,17 @@
+M = ubar gamma_mu gamma_nu p'_nu u = ?
+
+gamma_mu gamma_nu = 2g_munu - gamma_nu gamma_mu
+
+M = 2 ubar p'_mu u - ubar m_b2 gamma_mu u = 2 p'_mu ubar u - m_b2 ubar gamma_mu u
+
+H = ubar gamma_mu gamma_nu q_nu u = 
+
+q = p - p'
+
+
+f2: H = ubar gamma_mu gamma_nu p_nu u - M = (m_b1+m_b2) ubar gamma_mu u -  2 p'_mu ubar u 
+
+g2: 
+ubar gamma_mu gamma_nu p'_nu gamma5 u = ubar gamma_mu gamma_nu gamma5 p'_nu u = -ubar gamma_mu gamma5 gamma_nu p'_nu u = ubar gamma5 gamma_mu gamma_nu p'_nu u = 
+= 2 p'_mu ubar gamma5 u + m_b2 ubar gamma_mu gamma5 u
+
