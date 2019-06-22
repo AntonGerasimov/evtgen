@@ -1,5 +1,7 @@
 GCC=g++
 
+# test from Alex
+
 LIB_EVTGEN=/home/anton/programs/EvtGen-01.07.00/EvtGen/R01-07-00/lib/archive/libEvtGen.a
 LIB_MC=/home/anton/programs/EvtGen-01.07.00/EvtGen/EvtGen/external/HepMC/lib/libHepMC.a
 ROOT_LIBS = `root-config --libs`
