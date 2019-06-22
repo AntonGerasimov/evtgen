@@ -9,7 +9,6 @@
 #include "EvtGenBase/EvtDiracSpinor.hh"
 #include "EvtGenBase/EvtReport.hh"
 #include "EvtGenBase/EvtVector4C.hh"
-#include <EvtGammaMatrix.hh>
 
 #include "EvtGenBase/EvtComplex.hh"
 #include "EvtGenBase/EvtVector4R.hh"
@@ -48,22 +47,6 @@ void EvtOmegaOmega::initProbMax(){
 
   //setProbMax(650.0);
 
-}
-
-
-
-EvtVector4C EvtOmegaOmega::EvtSigmaCurrent(const EvtDiracSpinor &d, const EvtDiracSpinor &dp) 	
-{
-	EvtVector4C temp;
-
-	//Здесь идет код для VCurrent. Его нужно изменить
- 
-  	temp.set(0,d*(EvtGammaMatrix::v0()*dp));
-	temp.set(1,d*(EvtGammaMatrix::v1()*dp));
-  	temp.set(2,d*(EvtGammaMatrix::v2()*dp));
- 	temp.set(3,d*(EvtGammaMatrix::v3()*dp));
-   
-   	return temp;
 }
 
 void EvtOmegaOmega::HadronicAmp( EvtParticle* parent, 
