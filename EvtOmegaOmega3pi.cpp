@@ -78,7 +78,7 @@ void EvtOmegaOmega3pi::init(){
 
 void EvtOmegaOmega3pi::initProbMax(){
 
-  //setProbMax(650.0);
+  setProbMax(9000.0);
 
 }
 

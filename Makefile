@@ -18,13 +18,13 @@ FLAGS = `root-config --cflags`
 all: baryons.exe rrF.exe
 
 
-%.exe: %.cpp ${LIB_EVTGEN}
+%.exe: %.cpp EvtOmegaOmega.cpp ${LIB_EVTGEN}
 #	${GCC} -o $@ EvtOmegaOmega3pi.cpp EvtWHad.cpp $< ${FLAGS}  ${INC} ${LIBS} 
-	${GCC} -o $@ EvtOmegaOmega.cpp $< ${FLAGS}  ${INC} ${LIBS} 
+	${GCC} -o $@ EvtOmegaOmega.cpp EvtWHad.cpp $< ${FLAGS}  ${INC} ${LIBS} 
 
-%.exe: %.cc ${LIB_EVTGEN}
+%.exe: %.cc EvtOmegaOmega.cpp ${LIB_EVTGEN}
 #	${GCC} -o $@ EvtOmegaOmega3pi.cpp EvtWHad.cpp $< ${FLAGS}  ${INC} ${LIBS} 
-	${GCC} -o $@ EvtOmegaOmega.cpp $< ${FLAGS}  ${INC} ${LIBS} 
+	${GCC} -o $@ EvtOmegaOmega.cpp EvtWHad.cpp $< ${FLAGS}  ${INC} ${LIBS} 
 
 clean:
 	rm *.exe *~

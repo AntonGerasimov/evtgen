@@ -1,44 +1,15 @@
 noPhotos
 
 Decay Xi_cc++
-Lambda_c+    e+  anti-nu_e  PHOTOS OMEGAOMEGA;                     
-Enddecay
-
-Decay Xi_cc++
-Sigma_c+    e+  anti-nu_e  PHOTOS OMEGAOMEGA;                     
-Enddecay
-
-Decay Xi_cc++
-Xi_c+    e+  anti-nu_e  PHOTOS OMEGAOMEGA;                     
-Enddecay
-
-Decay Xi_cc++
-Xi'_c+    e+  anti-nu_e  PHOTOS OMEGAOMEGA;                     
+0.066 Lambda_c+    e+  anti-nu_e  PHOTOS OMEGAOMEGA;                     
 Enddecay
 
 Decay Xi_cc+
-Sigma_c0    e+  anti-nu_e  PHOTOS OMEGAOMEGA;                     
-Enddecay
-
-Decay Xi_cc+
-Xi'_c0    e+  anti-nu_e  PHOTOS OMEGAOMEGA;                     
+0.066 Sigma_c0    e+  anti-nu_e  PHOTOS OMEGAOMEGA;                     
 Enddecay
 
 Decay Omega_cc+
-Xi_c0    e+  anti-nu_e  PHOTOS OMEGAOMEGA;                     
-Enddecay
-
-Decay Omega_cc+
-Xi'_c0    e+  anti-nu_e  PHOTOS OMEGAOMEGA;                     
-Enddecay
-
-Decay Omega_cc+
-Omega_c0    e+  anti-nu_e  PHOTOS OMEGAOMEGA;                     
-Enddecay
-
-
-Decay Xi_cc+
-Xi_c0  e+  anti-nu_e PHOTOS OMEGAOMEGA;                     
+0.066 Omega_c0    e+  anti-nu_e  PHOTOS OMEGAOMEGA;                     
 Enddecay
 
 End
