@@ -277,6 +277,52 @@ void EvtOmegaOmega::initProbMax() {
     if (parnum == EvtPDL::getId("Omega_cc+") && daughtnum1 == EvtPDL::getId("Omega_c0") && (daughtnum2 == EvtPDL::getId("e-") || daughtnum2 == EvtPDL::getId("e+") )  ) {
         setProbMax(9000.0);
     }
+    if (parnum == EvtPDL::getId("Xi_cc++") && daughtnum1 == EvtPDL::getId("Lambda_c+")) {
+        //    \Xi_{cc}^{++}\Lambda_{c}^{+}
+        //setProbMax(9000.0);
+    }
+
+    if (parnum == EvtPDL::getId("Xi_cc++") && daughtnum1 == EvtPDL::getId("Sigma_c+")) {
+        // \Xi_{cc}^{++}\Sigma_{c}^{+}
+        //setProbMax(9000.0);
+    }
+
+    if (parnum == EvtPDL::getId("Xi_cc++") && daughtnum1 == EvtPDL::getId("Xi_c+")) {
+        // \Xi_{cc}^{++}\Xi_{c}^{+}
+        //setProbMax(9000.0);
+    }
+
+    if (parnum == EvtPDL::getId("Xi_cc++") && daughtnum1 == EvtPDL::getId("Xi'_c+")) {
+        //\Xi_{cc}^{++}\Xi_{c}^{\prime+}
+        //setProbMax(9000.0);
+    }
+
+    if (parnum == EvtPDL::getId("Xi_cc+") && daughtnum1 == EvtPDL::getId("Sigma_c0")) {
+  //      \Xi_{cc}^{+}\Sigma_{c}^{0}
+        //setProbMax(9000.0);
+    }
+
+
+    if (parnum == EvtPDL::getId("Xi_cc+") && daughtnum1 == EvtPDL::getId("Xi'_c0")) {
+        // \Xi_{cc}^{+}\Xi_{c}^{\prime0}
+        //setProbMax(9000.0);
+    }
+
+
+    if (parnum == EvtPDL::getId("Omega_cc+") && daughtnum1 == EvtPDL::getId("Xi_c0")) {
+        // \Omega_{cc}^{+}\Xi_{c}^{0}
+        //setProbMax(9000.0);
+    }
+
+
+    if (parnum == EvtPDL::getId("Omega_cc+") && daughtnum1 == EvtPDL::getId("Xi'_c0")) {
+        //\Omega_{cc}^{+}\Xi_{c}^{\prime0}
+        //setProbMax(9000.0);
+    }
+    
+    if (parnum == EvtPDL::getId("Xi_cc+") && daughtnum1== EvtPDL::getId("Xi_c0")) {
+        //setProbMax(9000.0);
+    }
 
 }
 
