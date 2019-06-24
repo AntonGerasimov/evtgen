@@ -2,7 +2,6 @@
 #define EVTOMEGAOMEGA_HH
 
 #include "EvtGenBase/EvtDecayAmp.hh"
-#include <EvtGammaMatrix.hh>
 #include "EvtGenBase/EvtComplex.hh"
 #include "EvtGenBase/EvtVector4R.hh"
 #include "EvtGenBase/EvtVector3R.hh"
@@ -31,7 +30,7 @@ public:
     EvtVector4C EvtSigmaCurrent(const EvtDiracSpinor &d, const EvtDiracSpinor &dp) ;
 
     void decay(EvtParticle *p); 
-
+    double f1a, f1b, f1c, f1d, f2a, f2b, f2c, f2d, g1a, g1b, g1c, g1d, g2a, g2b, g2c, g2d;
 };
 
 #endif
