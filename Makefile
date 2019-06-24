@@ -14,13 +14,16 @@ INC=-I ./ -I ${ROOT_INCDIR}  -I ${EVTGEN_INC}
 FLAGS = `root-config --cflags`
 
 
+#all: baryons3pi.exe rrF.exe
 all: baryons.exe rrF.exe
 
 
 %.exe: %.cpp ${LIB_EVTGEN}
-	${GCC} -o $@ EvtOmegaOmega.cpp   $< ${FLAGS}  ${INC} ${LIBS} 
+#	${GCC} -o $@ EvtOmegaOmega3pi.cpp EvtWHad.cpp $< ${FLAGS}  ${INC} ${LIBS} 
+	${GCC} -o $@ EvtOmegaOmega.cpp $< ${FLAGS}  ${INC} ${LIBS} 
 
 %.exe: %.cc ${LIB_EVTGEN}
+#	${GCC} -o $@ EvtOmegaOmega3pi.cpp EvtWHad.cpp $< ${FLAGS}  ${INC} ${LIBS} 
 	${GCC} -o $@ EvtOmegaOmega.cpp $< ${FLAGS}  ${INC} ${LIBS} 
 
 clean:
