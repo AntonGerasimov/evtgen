@@ -1,0 +1,11 @@
+noPhotos
+
+Decay Omega_cc+
+0.0666 Omega_c0  pi+ pi+ pi- pi- pi+ PHOTOS OMEGAOMEGA;                     
+Enddecay
+
+Decay Xi_cc+
+0.0666 Xi_c0  pi+ pi+ pi- pi- pi+ PHOTOS OMEGAOMEGA;                     
+Enddecay
+
+End
