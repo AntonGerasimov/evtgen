@@ -3,7 +3,7 @@ GCC=g++
 
 # test from Alex
 
-LIB_EVTGEN=/Users/luchinsky/Work/HEPforge/evtgen_build/lib/archive/libEvtGen.a
+LIB_EVTGEN=/Users/luchinsky/Work/EvtGen/R01-06-00/lib/archive/libEvtGen.a
 LIB_MC=/Users/luchinsky/Work/EvtGen/external/HepMC/lib/libHepMC.a
 #ROOT_LIBS = `root-config --libs`
 ROOT_LIBS=-L/usr/local/Cellar/root/6.12.04_1/lib/root -lCore -lImt -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lTreePlayer -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -lMultiProc -lpthread -stdlib=libc++ -lm -ldl
@@ -15,20 +15,18 @@ EVTGEN_INC = /Users/luchinsky/Work/EvtGen/R01-06-00/
 INC=-I ./ -I ${ROOT_INCDIR}  -I ${EVTGEN_INC}
 
 #FLAGS = `root-config --cflags`
-FLAGS = -pthread -stdlib=libc++ -std=c++11 -m64 -I/usr/local/Cellar/root/6.12.04_1/include/root
+FLAGS = -pthread -stdlib=libc++ -std=c++11 -m64 -I/usr/local/Cellar/root/6.12.04_1/include/root -lgfortran
 
 
-all: baryons.exe rrF.exe
+all: baryons.exe rrF.exe baryons3pi.exe
 
-
-baryons.exe: baryons.cc EvtOmegaOmega.cpp
+%.exe: %.cc EvtOmegaOmega.cpp EvtOmegaOmega3pi.cpp EvtWHad.cpp
 	${GCC} -o $@  $^ ${FLAGS}  ${INC} ${LIBS} 
 
-%.exe: %.cpp ${LIB_EVTGEN} EvtOmegaOmega.cpp
-	${GCC} -o $@ $^ ${FLAGS}  ${INC} ${LIBS} 
+%.exe: %.cpp ${LIB_EVTGEN}
+	${GCC} -o $@ EvtOmegaOmega3pi.cpp EvtWHad.cpp $< ${FLAGS}  ${INC} ${LIBS} 
+#	${GCC} -o $@ EvtOmegaOmega.cpp $< ${FLAGS}  ${INC} ${LIBS} 
 
-%.exe: %.cc ${LIB_EVTGEN} EvtOmegaOmega.cpp
-	${GCC} -o $@ $^ ${FLAGS}  ${INC} ${LIBS} 
 
 clean:
 	rm *.exe *~
