@@ -2,7 +2,6 @@
 #define EVTOMEGAOMEGA_HH
 
 #include "EvtGenBase/EvtDecayAmp.hh"
-#include <EvtGammaMatrix.hh>
 #include "EvtGenBase/EvtComplex.hh"
 #include "EvtGenBase/EvtVector4R.hh"
 #include "EvtGenBase/EvtVector3R.hh"
